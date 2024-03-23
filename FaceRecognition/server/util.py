@@ -46,7 +46,7 @@ def load_saved_artifacts():
 
     global __model
     if __model is None:
-        with open('./artifacts/saved_model.pkl', 'rb') as f:
+        with open('./artifacts/saved_model_new.pkl', 'rb') as f:
             __model = joblib.load(f)
     print("loading saved artifacts...done")
 
