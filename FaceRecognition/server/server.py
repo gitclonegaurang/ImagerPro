@@ -1,16 +1,15 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import util
 
 app = Flask(__name__)
+CORS(app, origins="http://localhost:5173")  # Specify the React app's origin
 
-
-@app.route('/classify_image', methods=['GET', 'POST'])
+@app.route('/classify_image', methods=['POST'])
 def classify_image():
-    image_data = request.form['image_data']
+    image_data = request.json['image_data']
 
     response = jsonify(util.classify_image(image_data))
-
-    response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response
 
