@@ -78,37 +78,61 @@ export default function LowToHigh() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={`${styles.leftPanel} w-full lg:w-1/2`}>
-        <div className={styles.imageContainer} onClick={handleUploadImage}>
-          <p className="text-center">Drag and drop your image here</p>
-          <input
-            type="file"
-            ref={fileInputRef}
-            className="hidden"
-            onChange={handleFileChange}
-          />
-          {selectedImage && (
-            <img
-              alt="Selected image"
-              className={styles.image}
-              src={selectedImage}
-            />
-          )}
-        </div>
-        <button className={styles.button} onClick={handleSubmitImage}>
-          Upload Image
-        </button>
-      </div>
-      <div className={`${styles.rightPanel} w-full lg:w-1/2 bg-white`}>
-        <div className={styles.imageContainer}>
+    <div className="bg-zinc-400 z-1 h-full w-screen pb-80" style={{
+      backgroundImage: 'url(\'https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\')',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      overflow: 'hidden'
+    }}>        
+      <header className="sticky top-0 text-xl  flex justify-between p-8 items-center bg-transparent bg-gray-800 text-white p-4">
+        <a href="http://localhost:5173/" className="flex items-center text-white font-bold">
           <img
-            alt="Uploaded image"
-            className={styles.image}
-            src={placeholder}
+            src="/images/logo.jpg"
+            alt="Mountain"
+            className="h-8 w-8 mr-2"
           />
+          <span className="text-xl font-bold text-white">ImagePro</span>
+        </a>
+        <nav className="flex space-x-4">
+          <a href="http://localhost:5173" className="nav-link">Home</a>
+          {/* <a href="#" className="nav-link">Features</a>
+          <a href="#" className="nav-link">Pricing</a> */}
+          <a href="http://localhost:5173/imagegallery" className="nav-link">Gallery</a>
+        </nav>
+      </header>
+      <div className={styles.container} >
+        <div className={`${styles.leftPanel} w-full lg:w-1/2`}>
+          <div className={styles.imageContainer} onClick={handleUploadImage}>
+            <p className="text-center text-white">Drag and drop your image here</p>
+            <input
+              type="file"
+              ref={fileInputRef}
+              className="hidden"
+              onChange={handleFileChange}
+            />
+            {selectedImage && (
+              <img
+                alt="Selected image"
+                className={styles.image}
+                src={selectedImage}
+              />
+            )}
+          </div>
+          <button className={styles.button} onClick={handleSubmitImage}>
+            Upload Image
+          </button>
+        </div>
+        <div className={`${styles.rightPanel} w-full lg:w-1/2 bg-white`}>
+          <div className={styles.imageContainer}>
+            <img
+              alt="Uploaded image"
+              className={styles.image}
+              src={placeholder}
+            />
+          </div>
         </div>
       </div>
     </div>
+    
   );
 }
