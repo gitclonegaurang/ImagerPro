@@ -57,21 +57,43 @@ function Classification() {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="bg-gray-200 p-6 rounded-lg mt-6 shadow-md">
-        <h1 className="text-xl font-bold">Image Classifier</h1>
-        <p>Person Identified</p>
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={handleImageUpload}
-        />
-        {results.map((result, index) => (
-          <div key={index}>{JSON.stringify(result[0].class)}</div>
-        ))}
+    <>
+      <header className="sticky top-0 z-50 flex justify-between items-center bg-gray-800 text-white p-4">
+        <a href="#" className="flex items-center text-white">
+          <img src="/images/logo.jpg" alt="Mountain" className="h-8 w-8 mr-2" />
+          <span className="text-lg font-bold">ImagePro</span>
+        </a>
+        <nav className="flex space-x-4">
+          <a href="#" className="nav-link">
+            Home
+          </a>
+          <a href="#" className="nav-link">
+            Features
+          </a>
+          <a href="#" className="nav-link">
+            Pricing
+          </a>
+          <a href="#" className="nav-link">
+            About
+          </a>
+        </nav>
+      </header>
+      <div className="flex flex-col items-center">
+        <div className="bg-gray-200 p-6 rounded-lg mt-6 shadow-md">
+          <h1 className="text-xl font-bold">Image Classifier</h1>
+          <p>Person Identified</p>
+          <input
+            type="file"
+            accept="image/*"
+            multiple
+            onChange={handleImageUpload}
+          />
+          {results.map((result, index) => (
+            <div key={index}>{JSON.stringify(result[0].class)}</div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
